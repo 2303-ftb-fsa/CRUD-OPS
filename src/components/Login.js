@@ -43,7 +43,7 @@ const Login = ({
 
     if (data.token) {
       setToken(data.token);
-      setUser({ username, token: data.token });
+      setUser(data.user);
       setIsLoggedIn(true);
     }
     setUsername('');
