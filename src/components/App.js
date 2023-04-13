@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom';
-import { Navbar, Login, Posts, Welcome } from '.';
+import { Navbar, Posts, Welcome, AuthForm } from '.';
 import { getPosts } from '../api';
 import { getMe } from '../api/auth';
 import './index.css';
@@ -54,9 +54,9 @@ const App = () => {
           }
         />
         <Route
-          path='/login'
+          path='/auth/:formName'
           element={
-            <Login
+            <AuthForm
               token={token}
               setToken={setToken}
               user={user}
@@ -77,6 +77,32 @@ const App = () => {
             />
           }
         />
+        {/* <Route
+            path='/login'
+            element={
+              <Login
+                token={token}
+                setToken={setToken}
+                user={user}
+                setUser={setUser}
+                isLoggedIn={isLoggedIn}
+                setIsLoggedIn={setIsLoggedIn}
+              />
+            }
+          />
+          <Route
+            path='/signup'
+            element={
+              <Register
+                token={token}
+                setToken={setToken}
+                user={user}
+                setUser={setUser}
+                isLoggedIn={isLoggedIn}
+                setIsLoggedIn={setIsLoggedIn}
+              />
+            }
+          /> */}
       </Routes>
     </>
   );
