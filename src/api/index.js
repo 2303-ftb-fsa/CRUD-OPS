@@ -69,17 +69,20 @@ const fakePosts = {
 };
 export const getPosts = async () => {
   try {
-    // const response = await fetch(`${BASE}/posts`);
+    const response = await fetch(`${BASE}/posts`);
 
-    // const data = await response.json();
+    const result = await response.json();
 
     // console.log(data);
     // return data;
-    const {
-      data: { posts },
-    } = fakePosts;
+    // const {
+    //   data: { posts },
+    // } = fakePosts;
+    // const {
+    //   data: { posts },
+    // } = result;
     // return fakePosts.data.posts;
-    return posts;
+    return result;
   } catch (error) {
     console.error(error);
   }

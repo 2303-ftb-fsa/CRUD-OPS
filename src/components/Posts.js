@@ -5,6 +5,7 @@ import {
   updatePartialPost,
   deletePost,
 } from '../api';
+import Button from './Button';
 
 const Posts = ({ posts, setPosts, isLoggedIn, user }) => {
   const postId = 1;
@@ -28,7 +29,7 @@ const Posts = ({ posts, setPosts, isLoggedIn, user }) => {
     title: "Adonis is my pitty-mix, and he's now in the spotlight. id: 2",
   };
 
-  console.log(posts);
+  // console.log(posts);
   return (
     <>
       {isLoggedIn ? (
@@ -51,14 +52,23 @@ const Posts = ({ posts, setPosts, isLoggedIn, user }) => {
       ) : (
         <>
           <h1>Hello unauthenticated person! From Posts.js</h1>
-          <button
+          <Button
+            nameOfClass={'create-button'}
+            action={async () => {
+              const newPost = await createNewPost(postToCreate);
+              setPosts([newPost, ...posts]);
+            }}
+            content={'Create New Post'}
+          />
+
+          {/* <button
             onClick={async () => {
               const newPost = await createNewPost(postToCreate);
               setPosts([newPost, ...posts]);
             }}
           >
             Create New Post
-          </button>
+          </button> */}
           <button
             onClick={async () => {
               const updatedPost = await updateEntirePost(

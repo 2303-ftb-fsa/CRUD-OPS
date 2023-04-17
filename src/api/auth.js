@@ -1,4 +1,5 @@
-const BASE = 'http://localhost:8000/api/2303-ftb-et-web-ft';
+// const BASE = 'http://localhost:8000/api/2303-ftb-et-web-ft';
+const BASE = 'https://strangers-things.herokuapp.com/api/2303-ftb-et-web-ft';
 
 export const getMe = async (token) => {
   try {
